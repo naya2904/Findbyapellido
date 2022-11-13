@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Examen1</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header/>
+        <h2>Vehiculo</h2>
+        <a th:href="@ {/nuevoVehiculo}">Nuevo Vehiculo</a>
+        <div if="${vehiculo != null and !vehiculo.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>descripcion</th>
+                        <th>fecha_salida</th>
+                        <th>cilindros</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr each="Vehiculo : ${Vehiculo}">
+                        <td text="${vehiculo.id_vehiculo}"></td>
+                        <td text="${vehiculo.descripcion}"></td>
+                        <td text="${vehiculo.fecha_salida}"></td>
+                        <td text="${vehiculo.cilindros}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${vehiculo == null or vehiculo.empty}">
+            la lista esta vacia
+        </div>
+    </body>
+</html>

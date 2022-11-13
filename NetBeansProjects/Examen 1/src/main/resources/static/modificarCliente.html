@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlsns:th="http://www.thymeleaf.org"
+           xmlns="http://www.w3.org/1999/xhtxl">
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h2>Datos de Vehiculo</h2>
+        <a th:href="@ {/}">Regresar</a>
+        <br/>
+        <form th:action="@{/guardarVehiculo}"
+            method="post"
+            th:object="${vehiculo}">
+            <input type="hidden" name="idVehiculo" th:field="*{id_Vehiculo}"/>
+            <label for="nombre">descripcion</label>
+            <input type="text" name="descripcion" th:field="{descripcion}" />
+            <br/>
+            <label for="descripcion">descripcion</label>
+            <input type="text" name="descripcion" th:field="{descripcion}" />
+            <label for="fecha_salida">fecha_salida</label>
+            <input type="date" name="fecha_salida" th:field="{fecha_salida}" />
+            <label for="cilindros">cilindros</label>
+            <input type="text" name="cilindros" th:field="{cilindros}" />
+            <br/>
+            <input type="submit" name="guardar" value="Guardar" />
+        </form>    
+    </body>
+</html>   
+
